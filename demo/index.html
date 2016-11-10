@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../dist/ld-datepicker.min.css" rel="stylesheet" type="text/css"/>
+     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.angularjs.org/1.2.32/angular.min.js" type="text/javascript"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.15.2/moment-with-locales.min.js"></script>
+    <script src="//cdn.bootcss.com/moment-timezone/0.5.7/moment-timezone-with-data.min.js"></script>
+    <script src="../dist/ld-datepicker.min.js" type="text/javascript"></script>
+</head>
+<body data-ng-app="datepickerTest">
+<div data-ng-controller="DatepickerTestController">
+    <div style="width: 1200px;margin-top:100px;text-align: center">
+        <h4>日期控件DEMO</h4>
+    </div>
+    <div style="width: 1200px;margin: 20px auto;">
+        <form name="form" class="form-horizontal" role="form" novalidate>
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">最小日期</label>
+                            <div class="col-md-8">
+                                <div date-time-append class="input-group">
+                                    <input id="minDate" name="minDate" class="form-control"
+                                           placeholder="最小日期" ng-model="condition.startTime"
+                                           date-time format="YYYY-MM-DD" max-view="year" min-view="date" view="month"
+                                           auto-close="true" max-date="condition.endTime"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="help-block">
+                                    {{form.minDate.$error}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">日期显示</label>
+                            <p class="form-control-static col-md-8">{{condition.startTime}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">最大日期</label>
+                            <div class="col-md-8">
+                                <div date-time-append class="input-group">
+                                    <input id="maxDate" name="maxDate" class="form-control"
+                                           placeholder="最大日期" ng-model="condition.endTime"
+                                           date-time format="YYYY-MM-DD" max-view="year" min-view="date" view="month"
+                                           auto-close="true" min-date="condition.startTime"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="help-block">
+                                    {{form.maxDate.$error}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">日期显示</label>
+                            <p class="form-control-static col-md-8">{{condition.endTime}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    moment.locale("zh-cn");
+    var datepickerTest = angular.module("datepickerTest", ["ldDatePicker"]);
+    datepickerTest.controller("DatepickerTestController", ["$scope", function ($scope) {
+        $scope.model = {
+            date: new Date().getTime(),
+            dateTime: moment(),
+            maxDate: moment(Date.UTC(2016, 10, 8, 0, 0, 0)),
+            minDate: moment(Date.UTC(2016, 9, 1, 0, 0, 0))
+        };
+        $scope.condition = {
+            startTime:  moment(Date.UTC(2016, 9, 1, 0, 0, 0)),
+            endTime: moment(Date.UTC(2016, 10, 8, 0, 0, 0))
+        }
+    }]);
+</script>
+</body>
+</html>

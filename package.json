@@ -1,0 +1,27 @@
+{
+  "name": "leading-datepicker",
+  "version": "1.0.0",
+  "main": "dist/ld-datepicker.js",
+  "repository": {
+    "url": "https://github.com/zgwangweijian/leadingDatepicker.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "del": "~0.1.1",
+    "event-stream": "~3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "~2.1.7",
+    "gulp-footer": "~1.0.5",
+    "gulp-header": "~1.0.2",
+    "gulp-jshint": "1.6.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^0.6.3",
+    "gulp-rename": "~0.2.2",
+    "gulp-uglify": "~0.3.1",
+    "jshint-stylish": "~0.3.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
