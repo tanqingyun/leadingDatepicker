@@ -10,7 +10,7 @@
     var angularMinorVersion = angular.version ? angular.version.minor : 0;
 
     if (angularMajorVersion != 1) {
-        alert("日历控件不支持当前angular版本");
+        alert("angular version not support");
         return;
     }
 
