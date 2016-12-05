@@ -1,7 +1,7 @@
 /*!
  * leading-datepicker
  * 
- * Version: 1.0.0 - 2016-12-05T06:16:50.831Z
+ * Version: 1.0.1 - 2016-12-05T06:50:37.877Z
  * License: 
  */
 
@@ -501,13 +501,18 @@
                 }
 
                 function prepareViewData() {
+                    if(minDate && minDate.isAfter(scope.date)){
+                        scope.date = minDate;
+                    }
+                    if(maxDate && maxDate.isBefore(scope.date)){
+                        scope.date = maxDate;
+                    }
                     var view = scope.view,
                         date = scope.date,
                         classes = [], classList = '',
                         i, j;
 
                     datePickerUtils.setParams(tz);
-
                     if (view === 'date') {
                         var weeks = scope.weeks, week;
                         for (i = 0; i < weeks.length; i++) {
