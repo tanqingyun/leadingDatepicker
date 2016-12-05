@@ -493,13 +493,18 @@
                 }
 
                 function prepareViewData() {
+                    if(minDate && minDate.isAfter(scope.date)){
+                        scope.date = minDate;
+                    }
+                    if(maxDate && maxDate.isBefore(scope.date)){
+                        scope.date = maxDate;
+                    }
                     var view = scope.view,
                         date = scope.date,
                         classes = [], classList = '',
                         i, j;
 
                     datePickerUtils.setParams(tz);
-
                     if (view === 'date') {
                         var weeks = scope.weeks, week;
                         for (i = 0; i < weeks.length; i++) {
