@@ -27,10 +27,6 @@
     border-top: 0;
 }
 
-.date-picker-date-time {
-
-}
-
 .datepicker-panel ul {
     margin: 0;
     padding: 0;
@@ -160,10 +156,4 @@
 
 [date-time-append] [date-picker] {
     position: relative;
-}
-
-[date-picker] .disabled {
-    background: none;
-    color: #999999 !important;
-    cursor: default;
 }
