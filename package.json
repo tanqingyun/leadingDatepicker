@@ -1,7 +1,6 @@
 {
   "name": "leading-datepicker",
   "version": "1.0.0",
-  "main": "dist/ld-datepicker.js",
   "repository": {
     "url": "https://github.com/zgwangweijian/leadingDatepicker.git"
   },

@@ -8,6 +8,7 @@
 
     var angularMajorVersion = angular.version ? angular.version.major : 0;
     var angularMinorVersion = angular.version ? angular.version.minor : 0;
+
     if (angularMajorVersion != 1) {
         alert("日历控件不支持当前angular版本");
         return;
@@ -297,7 +298,7 @@
         format: 'YYYY-MM-DD',
         views: ['date', 'year', 'month', 'hours', 'minutes'],
         autoClose: true,
-        position: 'absolute'
+        position: 'relative'
     });
 
     module.directive('dateTimeAppend', function () {
@@ -730,12 +731,26 @@
                 }
 
                 function setMin(date) {
+                    if(angular.isDate(date)){
+                        date = moment(date);
+                    }else if(angular.isNumber(date)){
+                        date = moment(date);
+                    }else if(angular.isString(date)){
+                        date = moment(date);
+                    }
                     minDate = date;
                     attrs.minDate = date ? date.format() : date;
                     minValid = moment.isMoment(date);
                 }
 
                 function setMax(date) {
+                    if(angular.isDate(date)){
+                        date = moment(date);
+                    }else if(angular.isNumber(date)){
+                        date = moment(date);
+                    }else if(angular.isString(date)){
+                        date = moment(date);
+                    }
                     maxDate = date;
                     attrs.maxDate = date ? date.format() : date;
                     maxValid = moment.isMoment(date);
@@ -931,9 +946,10 @@
                     // move picker below input element
                     if (position === 'absolute') {
                         var pos = angular.extend(element.offset(), {height: element[0].offsetHeight});
+                        var height = pos.height || element[0].offsetHeight;
                         picker.css({
-                            top: pos.top + pos.height + 5,
-                            left: pos.left,
+                            top: (pos.top + height + 5) + 'px',
+                            left: pos.left + 'px',
                             display: 'block',
                             position: position
                         });
@@ -943,7 +959,7 @@
                         container = angular.element('<div date-picker-wrapper></div>');
                         element[0].parentElement.insertBefore(container[0], element[0]);
                         container.append(picker);
-                        picker.css({top: element[0].offsetHeight + 'px'});
+                        picker.css({top: element[0].offsetHeight + 5 + 'px', display: 'block'});
                     }
                     picker.bind('mousedown', function (evt) {
                         isArea = true;

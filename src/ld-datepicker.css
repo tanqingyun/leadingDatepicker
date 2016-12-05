@@ -1,5 +1,5 @@
 .datepicker-container {
-    min-width:195px;
+    min-width: 195px;
     max-width: 230px;
     width: 210px;
     font-size: 12px;
@@ -27,7 +27,7 @@
     border-top: 0;
 }
 
-.date-picker-date-time{
+.date-picker-date-time {
 
 }
 
@@ -50,7 +50,7 @@
 
 .datepicker-panel > ul.years > li,
 .datepicker-panel > ul.months > li,
-.datepicker-panel > ul.minutes > li{
+.datepicker-panel > ul.minutes > li {
     width: 23%;
     height: 54px;
     line-height: 54px;
@@ -72,7 +72,7 @@
     border-radius: 4px;
 }
 
-.datepicker-panel > ul.hours > li{
+.datepicker-panel > ul.hours > li {
     width: 23%;
     height: 26px;
     line-height: 26px;
@@ -83,24 +83,26 @@
     border-radius: 4px;
 }
 
-.datepicker-panel > ul.days > li{
+.datepicker-panel > ul.days > li {
     cursor: pointer;
 }
-.datepicker-panel > ul > li.prev-month,.datepicker-panel > ul > li.next-month{
+
+.datepicker-panel > ul > li.prev-month, .datepicker-panel > ul > li.next-month {
     color: #999999;
 }
-.datepicker-panel > ul > li.un-show{
+
+.datepicker-panel > ul > li.un-show {
     cursor: default;
 }
 
-.datepicker-panel > ul > li.active{
+.datepicker-panel > ul > li.active {
     color: #ffffff;
     background-color: #0044cc;
 }
 
 .datepicker-panel > ul.datepicker-panel-header,
 .datepicker-panel > ul.datepicker-panel-content {
-    width:100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -119,6 +121,49 @@
     margin: 1%;
     cursor: pointer;
 }
+
+[date-picker-wrapper] {
+    position: absolute;
+    min-width: 220px;
+    z-index: 10;
+    display: block;
+    font-size: 14px;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
 .date-picker-date-time {
+    position: absolute;
     z-index: 9995;
+}
+
+[date-picker-wrapper] {
+    position: absolute;
+    min-width: 220px;
+    z-index: 10;
+    display: block;
+    font-size: 14px;
+}
+
+[date-time-append] [date-picker] {
+    position: relative;
+}
+
+[date-picker] .disabled {
+    background: none;
+    color: #999999 !important;
+    cursor: default;
 }
